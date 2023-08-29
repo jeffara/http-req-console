@@ -35,5 +35,5 @@ app.get('/req-debug-conecta-moda', function (req, res) {
 });
 
 app.listen(3000, () => {
-    console.log('[Req Debug] Webhook Hotmart e ClickMagick em execução através da porta 3000!');
+console.log('[Req Debug] Webhook de Debugging em Execução na Porta 3000!');
 });
