@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const cors = require('cors');
+const moment = require('moment-timezone');
 
 require("dotenv").config();
 
@@ -11,17 +12,7 @@ app.use(cors());
 
 app.get('/req-debug-sacred-frequencies', function (req, res) {
 
-    const data = new Date();
-
-    const dia = String(data.getDate()).padStart(2, '0');
-    const mes = String(data.getMonth() + 1).padStart(2, '0'); // Os meses são contados a partir de 0, então adicionamos 1
-    const ano = data.getFullYear();
-
-    const horas = String(data.getHours()).padStart(2, '0');
-    const minutos = String(data.getMinutes()).padStart(2, '0');
-    const segundos = String(data.getSeconds()).padStart(2, '0');
-
-    const dataFormatada = dia + '/' + mes + '/' + ano + ' ' + horas + ':' + minutos + ':' + segundos;
+    const dataFormatada = moment().tz("America/Sao_Paulo").format('DD/MM/YYYY HH:mm:ss');
 
     const urlFormatada = req.originalUrl.split('fullURL=')[1];
 
@@ -33,17 +24,7 @@ app.get('/req-debug-sacred-frequencies', function (req, res) {
 
 app.get('/req-debug-conecta-moda', function (req, res) {
 
-    const data = new Date();
-
-    const dia = String(data.getDate()).padStart(2, '0');
-    const mes = String(data.getMonth() + 1).padStart(2, '0'); // Os meses são contados a partir de 0, então adicionamos 1
-    const ano = data.getFullYear();
-
-    const horas = String(data.getHours()).padStart(2, '0');
-    const minutos = String(data.getMinutes()).padStart(2, '0');
-    const segundos = String(data.getSeconds()).padStart(2, '0');
-
-    const dataFormatada = dia + '/' + mes + '/' + ano + ' ' + horas + ':' + minutos + ':' + segundos;
+    const dataFormatada = moment().tz("America/Sao_Paulo").format('DD/MM/YYYY HH:mm:ss');
 
     const urlFormatada = req.originalUrl.split('fullURL=')[1];
 
