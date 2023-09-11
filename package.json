@@ -1,13 +1,13 @@
 {
-  "name": "webhook-cm",
+  "name": "HTTP Req Console",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node webhookcm.js"
+    "start": "node httpReqConsole.js"
   },
-  "author": "",
+  "author": "Jeff Araujo",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.27.2",
