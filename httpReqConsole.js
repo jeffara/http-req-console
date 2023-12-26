@@ -15,9 +15,11 @@ app.get('/req-debug', function (req, res) {
     const dataFormatada = moment().tz("America/Sao_Paulo").format('DD/MM/YYYY HH:mm:ss');
 
     const urlFormatada = req.originalUrl.split('fullURL=')[1];
+    const urlVTURB = req.originalUrl.split('urlVTURB=')[1];
 
-    console.log("[Req Debug] URL da Request:")
+    console.log("[Req Debug] URLs da Request:")
     console.log(`Data: ${dataFormatada} - URL: ${urlFormatada}`);
+    console.log(`Data: ${dataFormatada} - URL: ${urlVTURB}`);
 
     res.sendStatus(200);
 });
