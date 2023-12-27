@@ -14,12 +14,12 @@ app.get('/req-debug', function (req, res) {
 
     const dataFormatada = moment().tz("America/Sao_Paulo").format('DD/MM/YYYY HH:mm:ss');
 
-    const urlFormatada = req.originalUrl.split('fullURL=')[1];
+    const urlFormatada = req.originalUrl.split('fullURL=')[1].split('urlVTURB=')[0];
     const urlVTURB = req.originalUrl.split('urlVTURB=')[1];
 
     console.log("[Req Debug] URLs da Request:")
-    console.log(`Data: ${dataFormatada} - URL: ${urlFormatada}`);
-    console.log(`Data: ${dataFormatada} - URL: ${urlVTURB}`);
+    console.log(`Data: ${dataFormatada} - URL PÁGINA: decodeURIComponent(${urlFormatada})`);
+    console.log(`Data: ${dataFormatada} - URL VTURB: decodeURIComponent(${urlVTURB})`);
 
     res.sendStatus(200);
 });
