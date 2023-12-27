@@ -15,11 +15,13 @@ app.get('/req-debug', function (req, res) {
     const dataFormatada = moment().tz("America/Sao_Paulo").format('DD/MM/YYYY HH:mm:ss');
 
     const urlFormatada = req.originalUrl.split('fullURL=')[1].split('urlVTURB=')[0];
-    const urlVTURB = req.originalUrl.split('urlVTURB=')[1];
+    const urlVTURB = req.originalUrl.split('urlVTURB=')[1].split('urlReferrer=')[0];
+    const urlREFERRER = req.originalUrl.split('urlReferrer=')[1];
 
     console.log("[Req Debug] URLs da Request:")
-    console.log(`Data: ${dataFormatada} - URL PÁGINA: decodeURIComponent(${urlFormatada})`);
-    console.log(`Data: ${dataFormatada} - URL VTURB: decodeURIComponent(${urlVTURB})`);
+    console.log(`Data: ${dataFormatada} - URL PÁGINA: ${urlFormatada}`);
+    console.log(`Data: ${dataFormatada} - URL VTURB: ${urlVTURB}`);
+    console.log(`Data: ${dataFormatada} - URL REFERRER: ${urlREFERRER}`);
 
     res.sendStatus(200);
 });
